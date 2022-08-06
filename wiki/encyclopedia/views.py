@@ -62,5 +62,17 @@ def create_page(request):
         })
 
 def edit_page(request, title):
-    
-    return get_page(request, title)
+    if request.method == "GET":
+        content = util.get_entry(title)
+        form = NewEntryForm(initial={"title":title, "content":content})
+        
+        return render(request, "encyclopedia/edit_page.html", {"form":form})
+    else:
+        form = NewEntryForm(request.POST)
+
+        if form.is_valid():    
+            content = form.cleaned_data["content"]
+            util.save_entry(title, bytes(content, 'utf8'))
+            return get_page(request, title)
+        else:
+            return render(request, "encyclopedia/edit_page.html", {"form":form})
