@@ -1,1 +1,1 @@
-web: gunicorn wiki:app --log-file -
+web: gunicorn wiki.wsgi
