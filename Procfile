@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath 'wiki/wiki' wiki.wsgi
+web: gunicorn --pythonpath wiki wiki.wsgi
