@@ -8,7 +8,7 @@ def list_entries():
     """
     Returns a list of all names of encyclopedia entries.
     """
-    _, filenames = default_storage.listdir("encyclopedia/entries")
+    _, filenames = default_storage.listdir("wiki/entries")
     return list(
         sorted(
             re.sub(r"\.md$", "", filename)
