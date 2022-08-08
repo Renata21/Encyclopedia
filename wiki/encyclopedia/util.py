@@ -24,7 +24,7 @@ def save_entry(title, content):
     content. If an existing entry with the same title already exists,
     it is replaced.
     """
-    filename = f"entries/{title}.md"
+    filename = f"wiki/entries/{title}.md"
     if default_storage.exists(filename):
         default_storage.delete(filename)
     default_storage.save(filename, ContentFile(content))
@@ -36,7 +36,7 @@ def get_entry(title):
     entry exists, the function returns None.
     """
     try:
-        f = default_storage.open(f"entries/{title}.md")
+        f = default_storage.open(f"wiki/entries/{title}.md")
         return f.read().decode("utf-8")
     except FileNotFoundError:
         return None
