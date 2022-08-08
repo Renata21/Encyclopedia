@@ -1,5 +1,6 @@
-from cProfile import label
+from email import utils
 import markdown2
+import random
 from django.http import HttpResponse
 from django.shortcuts import render
 from django import forms
@@ -76,3 +77,9 @@ def edit_page(request, title):
             return get_page(request, title)
         else:
             return render(request, "encyclopedia/edit_page.html", {"form":form})
+
+def random_page(request):
+    entries = util.list_entries()
+    page = random.choice(entries)
+
+    return get_page(request, page)
