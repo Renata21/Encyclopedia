@@ -1,1 +1,1 @@
-web: gunicorn encyclopedia.wsgi
+web: gunicorn --pythonpath 'Encyclopedia/' wiki.wsgi
