@@ -1,1 +1,0 @@
-# Puii sunt mejcheri
